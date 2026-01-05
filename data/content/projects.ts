@@ -19,20 +19,29 @@ const projects: Project[] = [
     tags: ["Laravel", "Bootstrap", "jQuery", "API"],
   },
   {
+    id: 8,
+    title: "E- Portal Brantas Abipraya",
+    desc: "The Brantas Abipraya E-Portal is PT Brantas Abipraya's internal website, designed to support the work needs of various departments. I worked on adding Standards & Regulations features, covering ISO, internal and external regulations, and system audits (internal and external audits). From business flow design to implementation, I used Laravel Livewire, Tailwind CSS, and code management through AWS CodeCommit.",
+    img: "/static/projects/portal brantas.png",
+    // github: "https://github.com/tedyadt/web-sentimen-reactjs",
+    tags: ["Laravel", "TailwindCSS", "Livewire", "AWS Codecommit", "PostgreSQL"],
+  }, 
+  {
+    id: 3,
+    title: "Sentimen Analisis Facebook Marketplace",
+    desc: "A web-based application to classify social media user sentiment towards Facebook Marketplace services in real time using a previously created Support Vector Machine machine learning model.",
+    img: "/static/projects/sentimen analisis.png",
+    github: "https://github.com/tedyadt/web-sentimen-reactjs",
+    tags: ["ReactJS", "TailwindCSS", "ApexCharts", "Flask", "Machine Learning"],
+  },
+  
+  {
     id: 2,
     title: "Diktisurat",
     desc: "Letter Transposition Web LLDIKTI Region VII is a web application that makes it easier for universities to send letters to LLDIKTI digitally, track the status of acceptance or rejection along with the explanation, without the need for physical letters.",
     img: "/static/projects/diktisurat.png",
     github: "https://github.com/tedyadt/lldikti",
     tags: ["Laravel", "Bootstrap", "jQuery", "API"],
-  },
-  {
-    id: 3,
-    title: "Sentimen Analisis Facebook Marketplace",
-    desc: "A web-based application to classify social media user sentiment towards Facebook Marketplace services in real time using a previously created Support Vector Machine machine learning model.",
-    img: "/static/projects/sentimen.png",
-    github: "https://github.com/tedyadt/web-sentimen-reactjs",
-    tags: ["ReactJS", "TailwindCSS", "ApexCharts", "Flask", "Machine Learning"],
   },
   {
     id: 4,
