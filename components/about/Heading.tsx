@@ -11,7 +11,7 @@ function Heading() {
             src="/static/doodles/skills/fillStar.svg"
           />
         </h1>
-        <p className="text-fun-gray text-xs sm:text-2xl mb-6 ">
+        <p className="text-fun-gray text-xs sm:text-lg mb-6 ">
           I am an Informatics graduate from Telkom University Surabaya with
           hands-on experience in developing web applications end-to-end.
           Throughout my internships at LLDIKTI Wilayah VII and PT Brantas
@@ -21,7 +21,7 @@ function Heading() {
           multiple departments.
         </p>
 
-        <p className="text-fun-gray text-xs sm:text-2xl mb-6">
+        <p className="text-fun-gray text-xs sm:text-lg mb-6">
           I have developed 5+ web-based projects, including an internal portal
           module with an approval workflow, a sentiment analysis system with an
           80% accurate machine learning model, and a higher-education management
@@ -30,7 +30,7 @@ function Heading() {
           testing, and collaboration using version control workflows.
         </p>
 
-        <p className="text-fun-gray text-xs sm:text-2xl">
+        <p className="text-fun-gray text-xs sm:text-lg">
           Beyond technical skills, I have strong capabilities in communication,
           teamwork, and problem solving—sharpened through academic projects and
           organizational experiences. With adaptability, a strong learning

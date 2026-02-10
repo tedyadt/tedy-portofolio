@@ -1,6 +1,6 @@
-import { useRef, useEffect } from 'react';
-import { Renderer, Program, Mesh, Triangle, Vec2 } from 'ogl';
-import styles from './DarkVeil.module.css';
+import { useRef, useEffect } from "react";
+import { Renderer, Program, Mesh, Triangle, Vec2 } from "ogl";
+import styles from "./DarkVeil.module.css";
 
 const vertex = `
 attribute vec2 position;
@@ -91,7 +91,7 @@ export default function DarkVeil({
   speed = 0.5,
   scanlineFrequency = 0,
   warpAmount = 0,
-  resolutionScale = 1
+  resolutionScale = 1,
 }: DarkVeilProps) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
@@ -104,7 +104,7 @@ export default function DarkVeil({
       dpr: Math.min(window.devicePixelRatio, 1.5), // Optimized DPR for better performance without losing crispness
       canvas,
       powerPreference: "high-performance",
-      antialias: false
+      antialias: false,
     });
 
     const gl = renderer.gl;
@@ -120,8 +120,8 @@ export default function DarkVeil({
         uNoise: { value: noiseIntensity },
         uScan: { value: scanlineIntensity },
         uScanFreq: { value: scanlineFrequency },
-        uWarp: { value: warpAmount }
-      }
+        uWarp: { value: warpAmount },
+      },
     });
 
     const mesh = new Mesh(gl, { geometry, program });
@@ -133,30 +133,40 @@ export default function DarkVeil({
       program.uniforms.uResolution.value.set(w, h);
     };
 
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
     resize();
 
     const start = performance.now();
-    let frame = 0;
+    let frameId: number;
 
     const loop = () => {
-      program.uniforms.uTime.value = ((performance.now() - start) / 1000) * speed;
+      program.uniforms.uTime.value =
+        ((performance.now() - start) / 1000) * speed;
       program.uniforms.uHueShift.value = hueShift;
       program.uniforms.uNoise.value = noiseIntensity;
       program.uniforms.uScan.value = scanlineIntensity;
       program.uniforms.uScanFreq.value = scanlineFrequency;
       program.uniforms.uWarp.value = warpAmount;
       renderer.render({ scene: mesh });
-      frame = requestAnimationFrame(loop);
+      frameId = requestAnimationFrame(loop);
     };
 
-    const animationId = requestAnimationFrame(loop);
+    frameId = requestAnimationFrame(loop);
 
     return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(frameId);
+      window.removeEventListener("resize", resize);
+      // Clean up GL resources to prevent memory leaks
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
+  }, [
+    hueShift,
+    noiseIntensity,
+    scanlineIntensity,
+    speed,
+    scanlineFrequency,
+    warpAmount,
+    resolutionScale,
+  ]);
   return <canvas ref={ref} className={styles.darkveilCanvas} />;
 }
-

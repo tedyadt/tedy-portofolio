@@ -6,61 +6,49 @@ import React, { JSX } from "react";
 import DarkVeil from "../global/DarkVeil/DarkVeil";
 
 function Page({ currentPage, meta: { title, desc }, children }: PageProps) {
-  const pageTitle = `${currentPage === "Home"
-    ? "Tedy Aditiya - Web Developer, Quality Assurance, Machine Learning."
-    : `${currentPage} - Tedy Aditiya`
-    }`;
+  const pageTitle = `${
+    currentPage === "Home"
+      ? "Tedy Aditiya - Web Developer, Quality Assurance, Machine Learning."
+      : `${currentPage} - Tedy Aditiya`
+  }`;
   console.log(currentPage);
   return (
     <>
-      <div className="fixed inset-0 z-[-1] pointer-events-none opacity-30">
-        <DarkVeil
-          hueShift={40}
-          noiseIntensity={0}
-          scanlineIntensity={0}
-          speed={0.5}
-          scanlineFrequency={0}
-          warpAmount={0}
-          resolutionScale={1.0}
-        />
-      </div>
       <div
         className="w-full m-auto flex flex-col items-center justify-center min-h-screen opening-box-animate-paddin text-white overflow-hidden md:overflow-visible"
         style={{ maxWidth: "1200px" }}
       >
+        <Head>
+          <title>{pageTitle}</title>
 
-      <Head>
-        <title>{pageTitle}</title>
+          <meta name="title" content={pageTitle} />
+          <meta name="description" content={desc} />
 
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://tedyaditiya.io/" />
+          <meta property="og:title" content={pageTitle} />
+          <meta property="og:description" content={desc} />
 
-        <meta name="title" content={pageTitle} />
-        <meta name="description" content={desc} />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tedyaditiya.io/" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={desc} />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://braydentw.io/" />
-        <meta property="twitter:title" content={pageTitle} />
-        <meta property="twitter:description" content={desc} />
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://braydentw.io/" />
+          <meta property="twitter:title" content={pageTitle} />
+          <meta property="twitter:description" content={desc} />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KC3CN7V');`,
-          }}
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+            }}
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -68,29 +56,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 page_path: window.location.pathname,
               });
           `,
-          }}
-        />
-      </Head>
-      <noscript
-        dangerouslySetInnerHTML={{
-          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC3CN7V"
+            }}
+          />
+        </Head>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC3CN7V"
 height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-        }}
-      ></noscript>
+          }}
+        ></noscript>
 
-      <main className="p-5 w-full flex-1 text-center relative">
-        <div className="sticky top-5 z-50 hidden sm:block">
-          <Navbar currentPage={currentPage} />
-        </div>
-        <div className="sticky top-5 z-50 -m-5 block sm:hidden">
-          <MobileNavbar />
-        </div>
-        <div className="pt-10">
-          {children}
-        </div>
-      </main>
-      <Footer />
-    </div>
+        <main className="p-5 w-full flex-1 text-center relative">
+          <div className="sticky top-5 z-50 hidden sm:block">
+            <Navbar currentPage={currentPage} />
+          </div>
+          <div className="sticky top-5 z-50 -m-5 block sm:hidden">
+            <MobileNavbar />
+          </div>
+          <div className="pt-10">{children}</div>
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }
@@ -105,4 +91,3 @@ type PageProps = {
   };
   children?: any;
 };
-
