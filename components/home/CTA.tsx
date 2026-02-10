@@ -10,8 +10,7 @@ function CTA() {
         </h2>
         <a
           href="mailto:tedyaditiya27@gmail.com"
-          className="cursor-pointer font-bold whitespace-nowrap 
-        mt-6 px-8 py-3 text-white border-2 rounded-full border-white bg-bg hover:bg-fun-pink hover:border-fun-pink transition-colors"
+          className="cursor-pointer font-bold whitespace-nowrap px-10 py-4 text-fun-white border border-white/20 text-xl rounded-full bg-white/5 backdrop-blur-md hover:bg-fun-pink hover:text-white hover:border-fun-pink transition-all duration-300 shadow-xl"
         >
           Get in Touch
         </a>

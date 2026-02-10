@@ -33,16 +33,12 @@ export default function MobileNavbar() {
   return (
     <nav>
       <div
-        className={`w-full justify-between flex items-center ${isMenuRendered && 'bg-bg'} p-5`}
+        className={`w-full justify-between flex items-center ${isMenuRendered ? 'bg-white/5 backdrop-blur-md border border-white/10 rounded-full' : ''} p-5`}
         style={{ zIndex: 101 }}
       >
         <li className="list-none font-bold text-lg">
           <Link href="/">
-            <img
-              className="mr-3"
-              src="/static/logos/logo_full.svg"
-              width="160"
-            />
+            <span className="font-black text-xl">Portofolio</span>
           </Link>
         </li>
         <button
@@ -57,17 +53,19 @@ export default function MobileNavbar() {
       </div>
       {isMenuMounted && (
         <ul
-          className={`menu flex flex-col absolute bg-bg
+          className={`menu flex flex-col absolute bg-white/10 backdrop-blur-lg border border-white/10 rounded-2xl mt-2 mx-5 p-4
             ${isMenuRendered && "menuRendered"}`}
+          style={{ width: "calc(100% - 40px)" }}
         >
           {routes.map((item, index) => {
             return (
               <li
-                className="border-b border-gray-900 text-gray-100 text-sm font-semibold"
+                key={index}
+                className="border-b border-white/5 text-gray-100 text-sm font-semibold last:border-0"
                 style={{ transitionDelay: `${150 + index * 25}ms` }}
               >
                 <Link href={item.path}>
-                  <a className="flex w-auto pb-4">{item.title}</a>
+                  <span className="flex w-auto py-4 cursor-pointer">{item.title}</span>
                 </Link>
               </li>
             );

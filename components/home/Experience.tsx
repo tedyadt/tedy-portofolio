@@ -6,7 +6,12 @@ import { Link as ScrollLink } from "react-scroll";
 
 // SectionTitle Component (jika belum ada, uncomment ini)
 const SectionTitle = ({ title }) => (
-  <h2 className="text-3xl font-bold mb-8 text-center">{title}</h2>
+  <div className="relative mb-12">
+    <h2 className="text-4xl md:text-5xl font-black text-center text-white tracking-tighter">
+      {title}
+    </h2>
+    <div className="w-24 h-1.5 bg-fun-pink mx-auto mt-4 rounded-full shadow-[0_0_15px_rgba(0,199,255,0.6)]"></div>
+  </div>
 );
 
 // Data pengalaman kerja - sesuaikan dengan pengalaman Anda
@@ -21,7 +26,14 @@ const experiences = [
       "Designed mockups and prototypes in Figma with a focus on UI/UX, ensuring a consistent appearance, ease of use, and a representative representation of user operational needs.",
       "Developed the website using Laravel and Livewire, integrated with a PostgreSQL database through DBeaver, and began exploring the company's microservices environment through AWS CodeCommit and AWS Lambda.",
     ],
-    tags: ["Laravel", "Figma", "Livewire", "Tailwind CSS", "AWS Codecommit", "Git",]
+    tags: [
+      "Laravel",
+      "Figma",
+      "Livewire",
+      "Tailwind CSS",
+      "AWS Codecommit",
+      "Git",
+    ],
   },
   {
     position: "Junior Frontend Developer",
@@ -33,8 +45,8 @@ const experiences = [
       "Conducted thorough website testing, identified issues, and compiled detailed test reports.",
       "Successfully presented the websites to stakeholders and explained their features and functionality professionally.",
     ],
-    tags: ["Laravel", "Figma", "UI/UX", "Testing"]
-  }
+    tags: ["Laravel", "Figma", "UI/UX", "Testing"],
+  },
 ];
 
 function Experience() {
@@ -45,85 +57,58 @@ function Experience() {
       <div className="max-w-5xl m-auto w-full">
         <div className="relative">
           {/* Timeline line - hanya tampil di desktop */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-fun-pink-light h-full"></div>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-[1px] bg-gradient-to-b from-transparent via-white/20 to-transparent h-full"></div>
 
           {experiences.map((item, index) => {
             const isEven = index % 2 === 0;
 
             return (
               <div key={index} className="relative mb-12 md:mb-16">
-                {/* Decorative elements */}
-                {index === 0 && (
-                  <>
-                    <img
-                      className="sqD absolute top-[-40px] left-[-20px] w-16 z-0 opacity-50"
-                      style={{ animationDelay: "0.1s" }}
-                      src="/static/doodles/testimonials/yay.svg"
-                      alt=""
-                    />
-                    {/* Doodle di celah kanan untuk card pertama (kiri) */}
-                    <img
-                      className="sqD hidden md:block absolute top-[20px] right-[-30px] w-48 z-0 opacity-40"
-                      style={{ animationDelay: "0.3s" }}
-                      src="/static/doodles/hero/coder.svg"
-                      alt=""
-                    />
-                  </>
-                )}
-                {index === 1 && (
-                  /* Doodle di celah kiri untuk card kedua (kanan) */
-                  <img
-                    className="sqD hidden md:block absolute top-[30px] left-[-40px] w-24   z-0 opacity-40"
-                    style={{ animationDelay: "0.5s" }}
-                    src="/static/doodles/skills/fillStar.svg"
-                    alt=""
-                  />
-                )}
-                {index === experiences.length - 1 && (
-                  <img
-                    className="sqD absolute bottom-[-20px] right-[-10px] w-12 z-0 opacity-50"
-                    style={{ animationDelay: "0.7s" }}
-                    src="/static/doodles/testimonials/squiggle2.svg"
-                    alt=""
-                  />
-                )}
-                {/* Timeline dot */}
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-fun-pink rounded-full border-4 border-fun-pink-darker z-10"></div>
+             
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-fun-pink shadow-[0_0_15px_rgba(0,199,255,0.8)] border-4 border-bg z-10"></div>
 
                 {/* Content card */}
-                <div className={`md:w-[calc(50%-2rem)] ${isEven ? 'md:ml-0 md:mr-auto md:pr-12' : 'md:ml-auto md:mr-0 md:pl-12'}`}>
-                  <div className="relative bg-fun-pink-darker border border-fun-pink-light p-6 rounded-lg">
+                <div
+                  className={`md:w-[calc(50%-2rem)] ${isEven ? "md:ml-0 md:mr-auto md:pr-12" : "md:ml-auto md:mr-0 md:pl-12"}`}
+                >
+                  <div className="relative bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl hover:border-fun-pink/50 transition-all duration-500 group">
+                    {/* Glow effect on hover */}
+                    <div className="absolute inset-0 bg-fun-pink/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
+
                     {/* Period badge */}
-                    <div className="inline-block bg-fun-pink text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                    <div className="inline-block bg-white/10 backdrop-blur-sm border border-white/10 text-fun-pink px-4 py-1.5 rounded-full text-xs font-bold mb-4 shadow-sm">
                       {item.period}
                     </div>
 
                     {/* Position & Company */}
-                    <h3 className="text-xl font-bold text-white mb-1">
+                    <h3 className="text-2xl font-black text-white mb-1 tracking-tight">
                       {item.position}
                     </h3>
-                    <p className="text-fun-pink font-semibold mb-3">
+                    <p className="text-fun-pink font-bold mb-4 flex items-center">
+                      <span className="w-4 h-[2px] bg-fun-pink mr-2 inline-block"></span>
                       {item.company}
                     </p>
 
                     {/* Description */}
-                    <div className="text-fun-gray text-sm mb-4 leading-relaxed">
-                      <ul className="space-y-2">
+                    <div className="text-fun-gray-light text-sm mb-6 leading-relaxed font-medium">
+                      <ul className="space-y-3">
                         {item.achievements.map((achievement, achIndex) => (
                           <li key={achIndex} className="flex items-start">
-                            <span className="text-fun-pink mr-2 mt-1 flex-shrink-0">•</span>
-                            <span>{achievement}</span>
+                            <span className="text-fun-pink mr-3 mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-fun-pink shadow-[0_0_8px_rgba(0,199,255,1)]"></span>
+                            <span className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                              {achievement}
+                            </span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
                       {item.tags.map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="bg-fun-pink bg-opacity-20 text-fun-pink px-3 py-1 rounded text-xs font-medium"
+                          className="bg-white/5 backdrop-blur-sm border border-white/10 text-white/70 px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider group-hover:text-fun-pink group-hover:border-fun-pink/30 transition-all duration-300"
                         >
                           {tag}
                         </span>

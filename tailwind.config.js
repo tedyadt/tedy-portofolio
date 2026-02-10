@@ -1,29 +1,32 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: "jit",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
-    fontFamily: {
-      sans: ["Be Vietnam Pro", "Inter", "system-ui", "sans"],
-      monospace: ["DM Mono", "monospace"],
-    },
-    colors: {
-      black: colors.black,
-      white: colors.white,
-      gray: colors.gray,
-      indigo: colors.indigo,
-      red: colors.rose,
-      yellow: colors.yellow,
-      blue: colors.blue,
-      green: colors.green,
-      orange: colors.orange,
-      purple: colors.purple,
-    pink: colors.pink,
-    },
     extend: {
+      fontFamily: {
+        sans: ["Be Vietnam Pro", "Inter", "system-ui", "sans"],
+        monospace: ["DM Mono", "monospace"],
+      },
       colors: {
+        black: colors.black,
+        white: colors.white,
+        gray: colors.gray,
+        indigo: colors.indigo,
+        red: colors.rose,
+        yellow: colors.yellow,
+        blue: colors.blue,
+        green: colors.green,
+        orange: colors.orange,
+        purple: colors.purple,
+        pink: colors.pink,
+
         bg: "#000a1f",
         "fun-gray-light": "#b2bbcf",
         "fun-gray": "#7b89a8",
@@ -38,26 +41,21 @@ module.exports = {
         "fun-pink-light": "#009ac5",
       },
       rotate: {
-        '360': '360deg'
+        "360": "360deg",
       },
       keyframes: {
         fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        }
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
-        'fadeInAndBounce': 'fadeIn 3s ease-out',
+        fadeInAndBounce: "fadeIn 3s ease-out",
       },
       willChange: {
-        'projectCard': 'border-color, opacity, transform',
-      }
+        projectCard: "border-color, opacity, transform",
+      },
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [require("@tailwindcss/forms")],
 };

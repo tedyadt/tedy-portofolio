@@ -4,29 +4,28 @@ import Page from "@/components/utility/Page";
 
 import Projects from "@/components/home/Projects";
 import Skills from "@/components/home/Skills";
-import Testimonials from "@/components/home/Experience";
-// import { allPosts } from "contentlayer/generated";
-// import { GetStaticProps } from "next";
-
-// export const getStaticProps: GetStaticProps = async () => {
-//   return {
-//     props: {
-//       allPosts: allPosts.sort(({date: dateA}: any, {date: dateB}: any) => dateB - dateA),
-//     },
-//   };
-// }
+import Experience from "@/components/home/Experience";
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
 export default function Home() {
   return (
     <Page currentPage="Home" meta={{ desc: "I'm a passionate web developer and designer coding beautiful websites and apps." }}>
       <Hero />
       <div className="mt-20 space-y-32">
-        <Projects />
-        <Skills />
-        <Testimonials />
-        {/* <Posts allPosts={allPosts} /> */}
+        <ScrollReveal>
+          <Projects />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Skills />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Experience />
+        </ScrollReveal>
       </div>
-      <CTA />
+      <ScrollReveal>
+        <CTA />
+      </ScrollReveal>
     </Page>
   );
 }
+
