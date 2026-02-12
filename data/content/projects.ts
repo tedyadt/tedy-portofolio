@@ -22,7 +22,7 @@ const projects: Project[] = [
     id: 8,
     title: "E- Portal Brantas Abipraya",
     desc: "The Brantas Abipraya E-Portal is PT Brantas Abipraya's internal website, designed to support the work needs of various departments. I worked on adding Standards & Regulations features, covering ISO, internal and external regulations, and system audits (internal and external audits). From business flow design to implementation, I used Laravel Livewire, Tailwind CSS, and code management through AWS CodeCommit.",
-    img: "/static/projects/portal brantas.png",
+    img: "/static/projects/portalnew.png",
     // github: "https://github.com/tedyadt/web-sentimen-reactjs",
     tags: ["Laravel", "TailwindCSS", "Livewire", "AWS Codecommit", "PostgreSQL"],
   }, 
