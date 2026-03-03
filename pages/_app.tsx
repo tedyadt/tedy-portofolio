@@ -1,5 +1,6 @@
 import "tailwindcss/tailwind.css";
 import "@/styles/main.css";
+import "@/components/global/LogoLoop/LogoLoop.css";
 
 import { AppProps } from "next/app";
 

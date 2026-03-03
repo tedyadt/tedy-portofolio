@@ -1,45 +1,143 @@
 import React from "react";
-import { skills } from "@/data/content/home";
+import LogoLoop from "@/components/global/LogoLoop/LogoLoop";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiPostgresql,
+  SiLaravel,
+  SiNodedotjs,
+  SiGit,
+  SiAmazonwebservices,
+  SiFigma,
+} from "react-icons/si";
+
+const techLogos = [
+  {
+    node: (
+      <SiReact className="opacity-60 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "React",
+    href: "https://react.dev",
+  },
+  {
+    node: (
+      <SiNextdotjs className="opacity-60 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "Next.js",
+    href: "https://nextjs.org",
+  },
+  {
+    node: (
+      <SiTypescript className="opacity-60 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "TypeScript",
+    href: "https://www.typescriptlang.org",
+  },
+  {
+    node: (
+      <SiTailwindcss className="opacity-60 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "Tailwind CSS",
+    href: "https://tailwindcss.com",
+  },
+  {
+    node: (
+      <SiHtml5 className="opacity-60 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "HTML",
+  },
+  {
+    node: (
+      <SiCss3 className="opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "CSS",
+  },
+  {
+    node: (
+      <SiJavascript className="opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "Javascript",
+  },
+  {
+    node: (
+      <SiPostgresql className="opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "PostgreSQL",
+  },
+  {
+    node: (
+      <SiLaravel className="opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "Laravel",
+  },
+  {
+    node: (
+      <SiNodedotjs className="opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "NodeJS",
+  },
+  {
+    node: (
+      <SiGit className="opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "Git",
+  },
+  {
+    node: (
+      <SiAmazonwebservices className="opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "AWS",
+  },
+  {
+    node: (
+      <SiFigma className="opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    ),
+    title: "Figma",
+  },
+];
 
 function Skills() {
   return (
-    <div className="flex flex-col md:flex-row justify-between relative">
-      <h2 className="relative text-3xl w-full text-center md:text-left font-bold md:max-w-lg mb-10 md:mr-10 md:mb-0 md:w-max mr-0 ">
-        I got the experience.
-        <br />
-        Here is my toolbelt for success.
-        <img
-          className="sqD bottom-[-80px] left-[-50px] lg:bottom-[-50px] lg:left-[-35px] z-[-10]"
-          src="/static/doodles/skills/laptop.svg"
-        />
-        <img
-          className="sqD hidden md:block top-[140px] right-0 lg:top-[105px]"
-          src="/static/doodles/skills/coding.svg"
-        />
-        <img
-          className="sqD hidden md:block top-[200px] right-[50px] lg:top-[170px] lg:right-[50px]"
-          src="/static/doodles/skills/youtube.svg"
-        />
-        <img
-          className="sqD top-[-15px] right-[-15px]"
-          src="/static/doodles/skills/fillStar.svg"
-        />
-      </h2>
-      <div className="relative max-w-lg w-full mx-auto md:mx-none grid gap-x-8 gap-y-12 sm:gap-8 md:gap-12 grid-cols-3 sm:grid-cols-6 items-center place-content-center">
-        {skills.map((item, index) => {
-          return (
-            <div
-              title={item.title}
-              key={index}
-              className="w-10 mx-auto flex items-center flex-col justify-center"
-            >
-              <img src={item.icon} style={item.style} />
-              <p className="text-xs text-fun-gray font-bold mt-3 opacity-80">
-                {item.title}
-              </p>
-            </div>
-          );
-        })}
+    <div className="relative py-12 px-4 md:px-0 flex flex-col items-end">
+      {/* Container for both text and logo, both right-aligned */}
+      <div className="w-full flex flex-col md:flex-row-reverse items-center justify-between gap-10">
+        {/* Right Side: Header - Clean & Simple */}
+        <div
+          id="learnmore"
+          className="w-full md:w-1/3 text-center md:text-right space-y-4"
+        >
+          <div className="relative inline-block md:block">
+            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tighter">
+              Professional <span className="text-fun-pink">Toolbelt</span>
+            </h2>
+            <div className="w-24 h-1.5 bg-fun-pink ml-auto mt-2 rounded-full shadow-[0_0_15px_rgba(0,199,255,0.8)]"></div>
+          </div>
+          <p className="text-fun-gray-light text-base md:text-lg leading-relaxed">
+            Crafting digital experiences with modern technologies.
+          </p>
+        </div>
+
+        {/* Left/Middle side shifted right: Cleanest Logo Loop */}
+        <div className="w-full md:w-2/3 overflow-hidden relative">
+          <div className="py-2">
+            <LogoLoop
+              logos={techLogos}
+              speed={30}
+              direction="left"
+              logoHeight={40}
+              gap={70}
+              hoverSpeed={5}
+              scaleOnHover
+              fadeOut
+              ariaLabel="Technology partners"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
