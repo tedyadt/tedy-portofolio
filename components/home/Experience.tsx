@@ -1,18 +1,6 @@
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
-
-// Uncomment jika SectionTitle belum diimport
-// import SectionTitle from "../global/SectionTitle";
-
-// SectionTitle Component (jika belum ada, uncomment ini)
-const SectionTitle = ({ title }) => (
-  <div className="relative mb-12">
-    <h2 className="text-4xl md:text-5xl font-black text-center text-white tracking-tighter">
-      {title}
-    </h2>
-    <div className="w-24 h-1.5 bg-fun-pink mx-auto mt-4 rounded-full shadow-[0_0_15px_rgba(0,199,255,0.6)]"></div>
-  </div>
-);
+import SectionTitle from "../global/SectionTitle";
 
 // Data pengalaman kerja - sesuaikan dengan pengalaman Anda
 const experiences = [
@@ -52,7 +40,7 @@ const experiences = [
 function Experience() {
   return (
     <div className="flex flex-col text-left max-w-md md:max-w-full w-full m-auto">
-      <SectionTitle title="My Work Experience" />
+      <SectionTitle title="My Work Experience" centered />
 
       <div className="max-w-5xl m-auto w-full">
         <div className="relative">
@@ -64,7 +52,6 @@ function Experience() {
 
             return (
               <div key={index} className="relative mb-12 md:mb-16">
-             
                 <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-fun-pink shadow-[0_0_15px_rgba(0,199,255,0.8)] border-4 border-bg z-10"></div>
 
                 {/* Content card */}

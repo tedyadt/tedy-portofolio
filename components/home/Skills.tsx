@@ -1,5 +1,6 @@
 import React from "react";
 import LogoLoop from "@/components/global/LogoLoop/LogoLoop";
+import SectionTitle from "../global/SectionTitle";
 import {
   SiReact,
   SiNextdotjs,
@@ -109,13 +110,10 @@ function Skills() {
         {/* Right Side: Header - Clean & Simple */}
         <div
           id="learnmore"
-          className="w-full md:w-1/3 text-center md:text-right space-y-4"
+          className="w-full md:w-1/3 text-center md:text-right space-y-2"
         >
           <div className="relative inline-block md:block">
-            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tighter">
-              Professional <span className="text-fun-pink">Toolbelt</span>
-            </h2>
-            <div className="w-24 h-1.5 bg-fun-pink ml-auto mt-2 rounded-full shadow-[0_0_15px_rgba(0,199,255,0.8)]"></div>
+            <SectionTitle title="Professional Toolbelt" />
           </div>
           <p className="text-fun-gray-light text-base md:text-lg leading-relaxed">
             Crafting digital experiences with modern technologies.
